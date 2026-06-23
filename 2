@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button id="botãoIniciar">Iniciar clique</button>
+<button id="botãoParar">Parar clique</button>
+<div id="quadrado">
+    <style>
+        #quadrado{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 20px;
+            transition: background-color 0.5 ease;
+        }
+        #quadrado.verde{
+            background-color: green;
+        }
+    </style>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const botãoIniciar = document.getElementById("botãoIniciar")
+const botãoParar = document.getElementById("botãoParar")
+const quadrado = document.getElementById("quadrado")
+function mudarParaverde(){
+    quadrado.classList.add("verde")
+}
+botãoIniciar.addEventListener("click", () => {
+    quadrado.addEventListener("click", mudarParaverde)
+    alert("Clique ativado. Cor mudará para verde")
+})
+botãoParar.addEventListener("click", () => {
+    quadrado.removeEventListener("click", mudarParaverde)
+    alert("Clique desativado. Não mudará de cor")
+})
