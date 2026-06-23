@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button id="botãoAtivar">Ativar mouse</button>
+<button id="botãoDesativar">Desativar mouse</button>
+<p id="coordenadas">Coordenadas: Mova o mouse (desativado)</p>
+    <style>
+    </style>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const botãoAtivar = document.getElementById("botãoAtivar")
+const botãoDesativar = document.getElementById("botãoDesativar")
+const displayCoordenadas = document.getElementById("coordenadas")
+function atualizarCoordenadas(evento){
+    const x = evento.clientX
+    const y = evento.clientY
+    displayCoordenadas.textContent = `Eixo x: ${x}px / Eixo y: ${y}px`
+}
+botãoAtivar.addEventListener("click", ()=>{
+    window.addEventListener("mousemove", atualizarCoordenadas)
+    displayCoordenadas.textContent = "Mouse ativo, mova o cursor"
+})
+botãoDesativar.addEventListener("click", ()=>{
+    window.removeEventListener("mousemove", atualizarCoordenadas)
+    displayCoordenadas.textContent = "Coordenadas paradas (desativado)"
+})
