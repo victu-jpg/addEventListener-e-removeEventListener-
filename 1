@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+    <button id="botãoAtivar">Ativar</button>
+    <button id="botãoDesativar">Desativar</button>
+    <p id="Parágrafo">Clique aqui</p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const botãoAtivar = document.getElementById("botãoAtivar")
+const botãoDesativar = document.getElementById("botãoDesativar")
+const Parágrafo = document.getElementById("Parágrafo")
+function exibirMensagem(){
+    alert("Você clicou no parágrafo!")
+}
+botãoAtivar.addEventListener("click", () => {
+    Parágrafo.addEventListener("click", exibirMensagem)
+    console.log("Evento ativado")
+})
+botãoDesativar.addEventListener("click", () => {
+    Parágrafo.removeEventListener("click", exibirMensagem)
+    console.log("Evento desativado")
+})
