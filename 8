@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<style>
+    #caixa{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <button id="ativarEvento">Ativar Evento</button>
+    <button id="removerEvento">Remover Evento</button>
+    <div id="caixa"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+const ativarEvento = document.getElementById("ativarEvento")
+const removerEvento = document.getElementById("removerEvento")
+const caixa = document.getElementById("caixa")
+function aumentarCaixa(){
+    caixa.style.width = "150px"
+    caixa.style.height = "150px"
+}
+ativarEvento.addEventListener("click", function (){
+    caixa.addEventListener("click", aumentarCaixa)
+})
+removerEvento.addEventListener("click", function (){
+    caixa.removeEventListener("click", aumentarCaixa)
+})
