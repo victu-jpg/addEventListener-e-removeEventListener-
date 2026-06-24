@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<p id="texto">War is over</p>
+<button id="ativar">Ativar evento</button>
+<button id="remover">Remover evento</button>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const texto = document.getElementById("texto")
+const botaoAtivar = document.getElementById("ativar")
+const botaoRemover = document.getElementById("remover")
+
+function alterarTexto(){
+    texto.textContent = "If you want it"
+}
+botaoAtivar.addEventListener("click", function (){
+    texto.addEventListener("click", alterarTexto)
+})
+botaoRemover.addEventListener("click", function (){
+    texto.removeEventListener("click", alterarTexto)
+})
