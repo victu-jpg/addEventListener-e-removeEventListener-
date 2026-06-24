@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button id="botãoAtivar">Ativar contador</button>
+<button id="botãoDesativar">Desativar contador</button>
+<hr>
+<button id="botãoContador">Clique aqui para contar</button>
+<p>Total de cliques - <span id="valorContador">0</span></p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const botãoAtivar = document.getElementById("botãoAtivar")
+const botãoDesativar = document.getElementById("botãoDesativar")
+const botãoContador = document.getElementById("botãoContador")
+const valorContador = document.getElementById("valorContador")
+let cliques = 0
+function jogarContador(){
+    cliques++
+    valorContador.textContent = cliques
+}
+botãoAtivar.addEventListener("click", ()=>{
+    botãoContador.removeEventListener("click", jogarContador)
+    botãoContador.addEventListener("click", jogarContador)
+    alert("Contador ativo")
+})
+botãoDesativar.addEventListener("click", ()=>{
+    botãoContador.removeEventListener("click", jogarContador)
+    alert("Contador desativado")
+})
