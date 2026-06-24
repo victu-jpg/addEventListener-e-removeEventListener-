@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<style>
+#retangulo{
+width: 200px;
+height: 100px;
+background-color: gray;
+margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<button id="ativarCor">Ativar cor</button>
+<button id="desativarCor">Desativar cor</button>
+<div id="retangulo"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+const botaoAtivar = document.getElementById("ativarCor")
+const botaoDesativar = document.getElementById("desativarCor")
+const retangulo = document.getElementById("retangulo")
+function mudarCor(){
+    retangulo.style.backgroundColor = "blue"
+}
+botaoAtivar.addEventListener("click", function (){
+    retangulo.addEventListener("click", mudarCor)
+})
+botaoDesativar.addEventListener("click", function (){
+    retangulo.removeEventListener("click", mudarCor)
+})
