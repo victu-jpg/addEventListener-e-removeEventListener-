@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<style>
+   #emoji{
+   font-size: 80px;
+   cursor: pointer;
+}
+    </style>
+</head>
+<body>
+<button id="ativarEvento">Ativar evento</button>
+    <button id="removerEvento">Remover evento</button>
+    <p id="emoji">😀</p>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+const ativarEvento = document.getElementById("ativarEvento")
+const removerEvento = document.getElementById("removerEvento")
+const emoji = document.getElementById("emoji")
+function trocarEmoji(){
+    emoji.textContent = "😎"
+}
+ativarEvento.addEventListener("click", function (){
+    emoji.addEventListener("click", trocarEmoji);
+})
+removerEvento.addEventListener("click", function (){
+    emoji.removeEventListener("click", trocarEmoji)
+})
