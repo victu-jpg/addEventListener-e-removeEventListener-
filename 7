@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button id="ligarAlerta">Ligar alerta</button>
+    <button id="desligarAlerta">Desligar alerta</button>
+    <br><br>
+    <img id="imagem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQznZBLbAacgh3aD18qf777KHBEQA7JAx8msxdYSWfybg&s=10" alt="Imagem">
+<script src="script.js"></script>
+</body>
+</html>
+
+
+const botaoLigar = document.getElementById("ligarAlerta")
+const botaoDesligar = document.getElementById("desligarAlerta")
+const imagem = document.getElementById("imagem")
+function mostrarAlerta() {
+    alert("Você clicou na imagem")
+}
+botaoLigar.addEventListener("click", function (){
+    imagem.addEventListener("click", mostrarAlerta)
+})
+botaoDesligar.addEventListener("click", function (){
+    imagem.removeEventListener("click", mostrarAlerta)
+})
