@@ -6,17 +6,24 @@
     <title>add e remove</title>
 </head>
 <body>
-    <button id="botaoEmoji">Adicionar emoji</button>
-    <div id="painel"></div>
+<button id="ativar">Ativar teclado</button>
+    <button id="desativar">Desativar teclado</button>
+    <h2>Teclas pressionadas - <span id="contador">0</span></h2>
 <script src="script.js"></script>
 </body>
 </html>
 
-
-let botao = document.getElementById("botaoEmoji")
-let painel = document.getElementById("painel")
-botao.addEventListener("click", function (){
-    let emoji = document.createElement("span")
-    emoji.textContent = "🙃"
-    painel.appendChild(emoji)
+let ativar = document.getElementById("ativar")
+let desativar = document.getElementById("desativar")
+let contador = document.getElementById("contador")
+let quantidade = 0
+function contarTeclas() {
+    quantidade++;
+    contador.textContent = quantidade
+}
+ativar.addEventListener("click", function (){
+    document.addEventListener("keydown", contarTeclas)
+})
+desativar.addEventListener("click", function (){
+    document.removeEventListener("keydown", contarTeclas)
 })
