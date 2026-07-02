@@ -1,26 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add e remove</title>
-</head>
-<body>
-<button onclick="criarBotao()">
-        Criar Botão
-    </button>
-<div id="areaBotoes"></div>
-<script src="script.js"></script>
-</body>
-</html>
+let personagem = document.getElementById("personagem");
 
+let x = 100;
+let y = 100;
 
-let contador = 1
-function criarBotao(){
-    let area = document.getElementById("areaBotoes")
-    let botao = document.createElement("button")
-    botao.textContent = "Botão " + contador
-    area.appendChild(botao)
-    area.appendChild(document.createElement("br"))
-    contador++
+function mover(evento){
+
+    if(evento.key=="ArrowUp"){
+        y -=10;
+    }else if(evento.key=="ArrowDown"){
+        y +=10;
+    }else if(evento.key=="ArrowLeft"){
+        x -=10;
+    }else if(evento.key=="ArrowRight"){
+        x +=10;
+    }
+
+    personagem.style.left=x+"px";
+    personagem.style.top=y+"px";
+
 }
+
+document.getElementById("ativar").addEventListener("click",function(){
+
+    document.addEventListener("keydown",mover);
+
+});
+
+document.getElementById("desativar").addEventListener("click",function(){
+
+    document.removeEventListener("keydown",mover);
+
+});
+
+
+let personagem = document.getElementById("personagem")
+let x = 100
+let y = 100
+function mover(evento){
+    if(evento.key=="ArrowUp"){
+        y -=10;
+    }else if(evento.key=="ArrowDown"){
+        y +=10;
+    }else if(evento.key=="ArrowLeft"){
+        x -=10;
+    }else if(evento.key=="ArrowRight"){
+        x +=10
+    }
+    personagem.style.left=x+"px"
+    personagem.style.top=y+"px"
+}
+document.getElementById("ativar").addEventListener("click",function(){
+    document.addEventListener("keydown",mover)
+})
+document.getElementById("desativar").addEventListener("click",function(){
+    document.removeEventListener("keydown",mover)
+})
