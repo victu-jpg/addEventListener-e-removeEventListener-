@@ -6,23 +6,26 @@
     <title>add e remove</title>
 </head>
 <body>
-<input type="text" id="tarefa" placeholder="Digite uma tarefa">
-<button id="adicionar">Adicionar Tarefa</button>
+<button id="ativar">Ativar registro</button>
+<button id="desativar">Desativar registro</button>
+<br><br>
+<button id="principal">Botão principal</button>
 <ul id="lista"></ul>
 <script src="script.js"></script>
 </body>
 </html>
 
 
-let campo = document.getElementById("tarefa")
-let botao = document.getElementById("adicionar")
+let principal = document.getElementById("principal")
 let lista = document.getElementById("lista")
-botao.addEventListener("click", function (){
-    let textoTarefa = campo.value
-    if (textoTarefa !== ""){
-        let item = document.createElement("li")
-        item.textContent = textoTarefa
-        lista.appendChild(item)
-        campo.value = ""
-    }
+function registrar(){
+    let item = document.createElement("li")
+    item.textContent = "Clique"
+    lista.appendChild(item)
+}
+document.getElementById("ativar").addEventListener("click", function (){
+    principal.addEventListener("click", registrar)
+})
+document.getElementById("desativar").addEventListener("click", function (){
+    principal.removeEventListener("click", registrar)
 })
