@@ -6,20 +6,27 @@
     <title>add e remove</title>
 </head>
 <body>
-<button onclick="adicionarNumero()">
-        Adicionar Número
-    </button>
-    <div id="listaNumeros"></div>
+<button id="ativar">Ativar hora</button>
+<button id="desativar">Desativar hora</button>
+<button id="hora">Mostrar hora</button>
+<p id="texto"></p>
 <script src="script.js"></script>
 </body>
 </html>
 
 
-let numero = 1
-function adicionarNumero(){
-    let lista = document.getElementById("listaNumeros")
-    let elemento = document.createElement("p")
-    elemento.textContent = numero
-    lista.appendChild(elemento)
-    numero++
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button id="ativar">Ativar hora</button>
+<button id="desativar">Desativar hora</button>
+<button id="hora">Mostrar hora</button>
+<p id="texto"></p>
+<script src="script.js"></script>
+</body>
+</html>
