@@ -6,34 +6,24 @@
     <title>add e remove</title>
 </head>
 <body>
-<input type="text" id="tarefa" placeholder="Digite uma tarefa">
-<button onclick="adicionarTarefa()">
-    Adicionar tarefa
-</button>
-<button onclick="removerUltimaTarefa()">
-    Remover Última Tarefa
-</button>
-<ul id="lista"></ul>
+<button id="ativar">Ativar</button>
+<button id="desativar">Desativar</button>
+<br><br>
+<input type="text" id="texto">
+<p id="saida"></p>
 <script src="script.js"></script>
 </body>
 </html>
 
 
-function adicionarTarefa(){
-    let tarefa = document.getElementById("tarefa")
-    let lista = document.getElementById("lista")
-    if (tarefa.value != ""){
-        let item = document.createElement("li")
-        item.textContent = tarefa.value
-        lista.appendChild(item)
-        tarefa.value = ""
-    }
+let texto = document.getElementById("texto")
+let saida = document.getElementById("saida")
+function mostrar() {
+    saida.textContent = texto.value
 }
-function removerUltimaTarefa(){
-    let lista = document.getElementById("lista")
-    if (lista.lastChild){
-        lista.removeChild(lista.lastChild)
-    } else {
-        alert("Não há tarefas para remover")
-    }
-}
+document.getElementById("ativar").addEventListener("click", function (){
+    texto.addEventListener("keyup", mostrar);
+})
+document.getElementById("desativar").addEventListener("click", function (){
+    texto.removeEventListener("keyup", mostrar);
+})
